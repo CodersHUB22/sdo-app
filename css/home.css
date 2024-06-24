@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap");
+
+:root {
+  --ff-primary: "Poppins", sans-serif;
+  --clr-primary: #000;
+  --clr-body: #333;
+  --clr-bg: #ddd;
+  --spacer: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 1em;
+  line-height: 1.6;
+  color: var(--clr-body);
+  padding-bottom: 13rem;
+  margin: 0;
+  font-family: var(--ff-primary);
+  background: var(--clr-bg);
+  overflow-x: hidden;
+}
+
+.navbar {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  background-color: #1178ec;
+}
+
+.navbar .nav-link {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 3px;
+  border: 10px thick solid #fff;
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  border: 10px thick solid #fff;
+  color: #fff;
+}
+
+.navbar .nav-link::before {
+  position: absolute;
+  content: "";
+  width: calc(100% - 20px);
+  height: 3px;
+  background: #fff;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.navbar .nav-link:hover::before {
+  visibility: visible;
+  opacity: 1;
+  border: 10px thick solid #fff;
+  color: #fff;
+}
+
+[type="color"] {
+  appearance: none;
+  padding: 0;
+  width: 100%;
+  height: 15px;
+  border: none;
+}
+
+[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+.color-picker {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #f8f9f9;
+}
+
+.color-label {
+  margin-top: 2%;
+}
+
+span {
+  display: block;
+}
+
+#btnAdd, .btn {
+  margin-left: -25%;
+  border-radius: 5px;
+}
+
+.alert {
+  display: block;
+  width: 30rem;
+  margin-left: 200%;
+  margin-right: 200%;
+  margin-top: 20%;
+}
+
+@media only screen and (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  .alert-message {
+    display: block;
+    margin-top: 20%;
+    margin-left: -20%;
+    margin-right: -20%;
+    max-width: 1rem;
+  }
+  .modal {
+    max-width: 100%;
+  }
+  .modal-dialog {
+    max-width: 100%;
+    margin: 1.75rem auto;
+  }
+  .modal-content {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    width: 80%;
+    pointer-events: auto;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    color: #000;
+    outline: 0;
+  }
+  .modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /sdo-app/
+
+    # Ensure that HTTP_HOST is not empty
+    RewriteCond %{HTTP_HOST} !^$
+
+    # Ensure that HTTP_HOST is not an IP address
+    RewriteCond %{HTTP_HOST} !^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$
+
+    # Redirect all requests to index.php except existing files or directories
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Prevent injection of a query string
+    RewriteRule ^(.*)$ /sdo-app/index.php?url=$1 [L,QSA]
+</IfModule>
